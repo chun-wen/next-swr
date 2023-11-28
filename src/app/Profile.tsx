@@ -2,7 +2,11 @@
 import useSWR from 'swr';
 import fetcher from './swr';
 
-// where wrong  is  'posts/1'  should be  '/posts/1'
+// why call api twice?
+// https://github.com/vercel/swr/issues/1952 
+
+// Next.js RSC import error: 'swr' does not contain a default export (imported as 'useSWR') 
+// https://github.com/vercel/swr/issues/2694
 
 export default function Profile() {
   const { data, error, isLoading } = useSWR('/posts/1', fetcher);
